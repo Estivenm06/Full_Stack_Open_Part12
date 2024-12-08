@@ -5,6 +5,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 mongo-data
+redis_data
 
 # Runtime data
 pids

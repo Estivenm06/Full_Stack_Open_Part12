@@ -9,8 +9,6 @@ router.get("/", async (_, res) => {
   res.send(todos);
 });
 
-let added_todos = 0;
-
 /* POST todo to listing. */
 router.post("/", async (req, res) => {
   const todo = await Todo.create({
@@ -19,10 +17,11 @@ router.post("/", async (req, res) => {
   });
 
   if (todo) {
-    await redis.setAsync("added_todos", added_todos++);
+    let value = await redis.getAsync("added_todos");
+    await redis.setAsync("added_todos", Number(value) + 1);
   }
 
-  res.send(todo);
+  res.send({ text: "hello World" });
 });
 
 const singleRouter = express.Router();
