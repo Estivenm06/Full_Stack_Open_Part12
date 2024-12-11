@@ -1,0 +1,10 @@
+services:
+  app:
+    image: todo-frontendcompose
+    build: 
+      context: .
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 5173:5173
+    container_name: todo-frontend
