@@ -6,6 +6,4 @@ COPY . .
 
 RUN npm ci
 
-USER node
-
-CMD npm run start
+CMD ["npm", "run", "start"]
